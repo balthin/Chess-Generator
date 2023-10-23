@@ -76,6 +76,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\ChessImages\ChessImages\ChessImages.csproj">
+      <Project>{BD00704B-F493-4B57-BDF8-B475D663DF3F}</Project>
+      <Name>ChessImages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ChessSystem\ChessSystem\ChessSystem.csproj">
+      <Project>{E53E17C5-204B-449B-B6FF-F700E1CBFA5C}</Project>
+      <Name>ChessSystem</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
