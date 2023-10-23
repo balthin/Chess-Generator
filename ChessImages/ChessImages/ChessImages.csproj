@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BD00704B-F493-4B57-BDF8-B475D663DF3F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ChessImages</RootNamespace>
+    <AssemblyName>ChessImages</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChessImages.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaBrinkAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaEmptyAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bbAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bkAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bnAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bqAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldBlackAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldBrickAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldGreenAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldWhiteAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wbAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wkAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wnAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wqAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaBrinkOldStyle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaEmptyOldStyle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bbOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bkOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bnOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bpOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bqOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wbOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wkOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wnOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wpOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wqOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\wrOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldBrickOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldCoralOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldGreenOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fieldLeafyOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pickOldStyle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menuAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pickAlpha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaOldStyle.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\areaAlpha.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
