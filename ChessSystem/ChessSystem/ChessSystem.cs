@@ -97,6 +97,14 @@ namespace ChessSystem
             }
 
         }
+        public class BitMinus
+        {
+            public readonly ulong Bitboard;
+            public BitMinus(ulong bitboard, int square)
+            {
+                Bitboard = bitboard | (~(1ul << square));
+            }
+        }
         public class PiecePosition
         {
             int[] initial = 
