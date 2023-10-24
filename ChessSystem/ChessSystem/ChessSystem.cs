@@ -88,7 +88,15 @@ namespace ChessSystem
                 TF = WF | BF;
             }
         }
-        
+        public class BitPlus
+        {
+            public readonly ulong Bitboard;
+            public BitPlus(ulong bitboard, int square)
+            {
+                Bitboard = bitboard | (1ul << square);
+            }
+
+        }
         public class PiecePosition
         {
             int[] initial = 
@@ -132,7 +140,6 @@ namespace ChessSystem
                 Items = new List<int>();
             }
         }
-
         public class FieldPosition
         {
             public List<int> Items { private set; get; }
