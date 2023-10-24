@@ -41,12 +41,12 @@ namespace ChessGenerator
             alf = new AlphaField();
 
             alfPosition = new FieldPosition();
-            //alfPosition.Add((d5 << 2) + 3);
+            alfPosition.Add((d5 << 2) + 3);
             alfPaint = new FieldPaint(alf);
 
             alphaPosition = new PiecePosition();
-            //alphaPosition.Add(wr + (d5 << 5));
-            alphaPosition.Initialize();
+            alphaPosition.Add(wr + (d5 << 5));
+            //alphaPosition.Initialize();
             alphaPaint = new PiecePaint(alpha);
 
             LayerPaint alphaLayer = new LayerPaint(alfPaint.DrawFields(alfPosition.Items), alphaPaint.DrawPosition(alphaPosition.Items));

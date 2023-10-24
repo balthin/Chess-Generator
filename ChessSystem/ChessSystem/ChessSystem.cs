@@ -7,6 +7,53 @@ namespace ChessSystem
 {
     namespace Structure
     {
+        public class BitPieces
+        {
+            public ulong WK { private set; get; }
+            public ulong WQ { private set; get; }
+            public ulong WR { private set; get; }
+            public ulong WB { private set; get; }
+            public ulong WN { private set; get; }
+            public ulong WP { private set; get; }
+            public ulong BK { private set; get; }
+            public ulong BQ { private set; get; }
+            public ulong BR { private set; get; }
+            public ulong BB { private set; get; }
+            public ulong BN { private set; get; }
+            public ulong BP { private set; get; }
+            public ulong BF { private set; get; }
+            public ulong WF { private set; get; }
+            public ulong TF { private set; get; }
+
+            public BitPieces(List<int> pieces)
+            {
+                foreach (int p in pieces)
+                {
+                    int s = (p >> 5) & 63;
+                    ulong b = 1;
+                    ulong bs = b << s;
+                    switch (p & 31)
+                    {
+                        case 09: WK |= bs; break;
+                        case 10: WQ |= bs; break;
+                        case 11: WR |= bs; break;
+                        case 12: WB |= bs; break;
+                        case 13: WN |= bs; break;
+                        case 14: WP |= bs; break;
+                        case 17: BK |= bs; break;
+                        case 18: BQ |= bs; break;
+                        case 19: BR |= bs; break;
+                        case 20: BB |= bs; break;
+                        case 21: BN |= bs; break;
+                        case 22: BP |= bs; break;
+                    }
+                }
+                WF = WK | WQ | WR | WB | WN | WP;
+                BF = BK | BQ | BR | BB | BN | BP;
+                TF = WF | BF;
+            }
+        }
+        
         public class PiecePosition
         {
             int[] initial = 
@@ -50,6 +97,7 @@ namespace ChessSystem
                 Items = new List<int>();
             }
         }
+
         public class FieldPosition
         {
             public List<int> Items { private set; get; }
