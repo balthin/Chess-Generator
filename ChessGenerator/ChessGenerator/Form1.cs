@@ -68,7 +68,7 @@ namespace ChessGenerator
             LayerPaint alphaLayer = new LayerPaint(alfPaint.DrawFields(alfPosition.Items), alphaPaint.DrawPosition(alphaPosition.Items));
 
             pictureBoard.Image = alphaLayer.Image();
-
+            // test code editor github
             bPieces = new BitPieces(alphaPosition.Items);
             Text = new BitPlace(bPieces.BR).Has(a8).ToString();
         }
