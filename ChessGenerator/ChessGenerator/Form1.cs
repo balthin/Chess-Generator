@@ -44,7 +44,7 @@ namespace ChessGenerator
             int e4 = 3 + (3 << 3);
             int d5 = 4 + (4 << 3);
 
-            
+            int a8 = 7 + (7 << 3);
 
 
             alpha = new AlphaPieces();
@@ -70,7 +70,7 @@ namespace ChessGenerator
             pictureBoard.Image = alphaLayer.Image();
 
             bPieces = new BitPieces(alphaPosition.Items);
-            Text = new BitPlace(bPieces.WB).Has(f1).ToString();
+            Text = new BitPlace(bPieces.BR).Has(a8).ToString();
         }
     }
 }
