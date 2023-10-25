@@ -119,6 +119,23 @@ namespace ChessSystem
                 return false;
             }
         }
+        public class BitCalculation
+        {
+            private ulong bitboard;
+            public BitCalculation(ulong bbPiece)
+            {
+                bitboard = bbPiece;
+            }
+            public ulong BitCount
+            {
+                get
+                {
+                    bitboard -= (bitboard >> 1) & 0x5555555555555555ul;
+                    bitboard = ((bitboard >> 2) & 0x3333333333333333ul) + (bitboard & 0x3333333333333333ul);
+                    return ((((bitboard >> 4) + bitboard) & 0x0F0F0F0F0F0F0F0Ful) * 0x0101010101010101) >> 56;
+                }
+            }
+        }
     }
     namespace Structure
     {
