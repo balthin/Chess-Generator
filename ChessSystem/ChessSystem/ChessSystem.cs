@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Drawing;
 using ChessImages;
@@ -134,6 +135,15 @@ namespace ChessSystem
                     bitboard = ((bitboard >> 2) & 0x3333333333333333ul) + (bitboard & 0x3333333333333333ul);
                     return ((((bitboard >> 4) + bitboard) & 0x0F0F0F0F0F0F0F0Ful) * 0x0101010101010101) >> 56;
                 }
+            }
+        }
+        public class RightBit
+        {
+            public readonly int Index;
+            public RightBit(ulong bitboard)
+            {
+                ulong a = bitboard & ~(bitboard - 1);
+                Index = (int)Math.Log(a, 2);
             }
         }
     }
