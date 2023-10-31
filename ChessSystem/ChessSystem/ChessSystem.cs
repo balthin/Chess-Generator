@@ -8,7 +8,7 @@ namespace ChessSystem
 {
     namespace Bitboard
     {
-        public class PseudoLegal
+        public class PseudoAttack
         {
             private ulong[] PseudoLegalKnight =
             {
@@ -32,7 +32,7 @@ namespace ChessSystem
                 0x0302030000000000, 0x0705070000000000, 0x0E0A0E0000000000, 0x1C141C0000000000, 0x3828380000000000, 0x7050700000000000, 0xE0A0E00000000000, 0xC040C00000000000,
                 0x0203000000000000, 0x0507000000000000, 0x0A0E000000000000, 0x141C000000000000, 0x2838000000000000, 0x5070000000000000, 0xA0E0000000000000, 0x40C0000000000000
             };
-            public PseudoLegal() { }//Bugaenko?!
+            public PseudoAttack() { }//Bugaenko?!
             public ulong OfKnight(int square)
             {
                 return PseudoLegalKnight[square];
