@@ -58,7 +58,7 @@ namespace ChessGenerator
             alf = new AlphaField();
 
             alfPosition = new FieldPosition();
-            alfPosition.Add((d5 << 2) + 3);
+            //alfPosition.Add((d5 << 2) + 3);
             alfPaint = new FieldPaint(alf);
 
             alphaPosition = new PiecePosition();
