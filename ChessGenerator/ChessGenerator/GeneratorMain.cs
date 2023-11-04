@@ -89,7 +89,8 @@ namespace ChessGenerator
             int e4 = vert + horz;
             int figure = whitePawn + (e4 << 5);
 
-            pieces.Add(878);
+            pieces.Add(figure);
+            //pieces.Add(878);
 
             piecesPicture = new PiecePaint(alphaStyle);
             piecesPicture.DrawPosition(pieces.Items);
