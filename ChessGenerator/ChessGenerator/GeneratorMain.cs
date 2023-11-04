@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using ChessImages;
+using ChessSystem.Structure;
+using ChessSystem.Painting;
+using ChessSystem.Bitboard;
+
+namespace ChessGenerator
+{
+    public partial class foMain : Form
+    {
+        AlphaPieces alphaStyle;
+        PiecePosition pieces;
+        PiecePaint piecesPicture;
+
+        AlphaField alphaFields;
+        FieldPosition fields;
+        FieldPaint fieldsPicture;
+
+        BitPieces bPieces;
+        PseudoAttack pseudo;
+
+        public foMain()
+        {
+            InitializeComponent();
+           
+            alphaStyle = new AlphaPieces();
+            panelBoard.BackgroundImage = alphaStyle.Board();
+            panelBoard.Size = new Size(alphaStyle.BoardSize(), alphaStyle.BoardSize());
+            pictureBoard.Size = new Size(alphaStyle.BoardSize() - alphaStyle.BordSize(), alphaStyle.BoardSize() - alphaStyle.BordSize());
+            pictureBoard.Location = new Point(alphaStyle.BordSize() / 2, alphaStyle.BordSize() / 2);
+            pictureBoard.BackColor = Color.Transparent;
+            Setting.Top = panelBoard.Top;
+            Setting.Left = panelBoard.Left + panelBoard.Width + 25;
+
+            pieces = new PiecePosition();
+            piecesPicture = new PiecePaint(alphaStyle);
+
+            alphaFields = new AlphaField();
+            fields = new FieldPosition();
+            fieldsPicture = new FieldPaint(alphaFields);
+        }
+
+        private void numericPosition_ValueChanged(object sender, EventArgs e)
+        {
+            pieces = new PiecePosition();
+            ulong num = (ulong)numericPosition.Value;
+            int wrPos = (int)trackHorz.Value;
+            
+            ulong b = 1;
+            for (int i = 0; i < 64; i++, b = (1ul << i))
+            {
+                if ((num & b) != 0)
+                    pieces.Add((i << 5) + 21);
+            }
+            
+            int track = (int)trackHorz.Value;
+            ulong wrBit = 1ul << track;
+            if ((num & wrBit) != 0)
+                pieces.Add((track << 5) + 11);
+
+            bPieces = new BitPieces(pieces.Items);
+            pseudo = new PseudoAttack(bPieces.TF, wrPos);
+
+            fields = new FieldPosition();
+
+            foreach (int s in pseudo.AttackList())
+                fields.Add(0 + (s << 2));
+            
+            LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
+            pictureBoard.Image = alphaLayer.Image();
+        }
+    }
+}
+;
