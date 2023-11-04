@@ -4703,6 +4703,14 @@ namespace ChessSystem
             {
                 return attack;
             }
+            public List<int> AttackList()
+            {
+                List<int> result = new List<int>();
+                for (int i = 0; i < 64; i++)
+                    if ((attack & Bit[i]) != 0)
+                        result.Add(i);
+                return result;
+            }
         }
         public class BitPieces
         {
