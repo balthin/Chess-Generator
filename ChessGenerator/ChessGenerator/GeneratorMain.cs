@@ -114,9 +114,9 @@ namespace ChessGenerator
             int blackFigure = colorFigure + knight;
             int vert = 5;
             int horz = 5 << 3;
-            int Kc6 = vert + horz;
-            int wpE5 = blackFigure + (Kc6 << 5);
-            pieces.Add(wpE5);
+            int c6 = vert + horz;
+            int Kc6 = blackFigure + (c6 << 5);
+            pieces.Add(Kc6);
 
             piecesPicture = new PiecePaint(alphaStyle);
             piecesPicture.DrawPosition(pieces.Items);
