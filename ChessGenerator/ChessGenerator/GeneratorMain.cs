@@ -29,7 +29,7 @@ namespace ChessGenerator
         public foMain()
         {
             InitializeComponent();
-           
+
             alphaStyle = new AlphaPieces();
             panelBoard.BackgroundImage = alphaStyle.Board();
             panelBoard.Size = new Size(alphaStyle.BoardSize(), alphaStyle.BoardSize());
@@ -39,12 +39,7 @@ namespace ChessGenerator
             Setting.Top = panelBoard.Top;
             Setting.Left = panelBoard.Left + panelBoard.Width + 25;
 
-            pieces = new PiecePosition();
-            piecesPicture = new PiecePaint(alphaStyle);
-
-            alphaFields = new AlphaField();
-            fields = new FieldPosition();
-            fieldsPicture = new FieldPaint(alphaFields);
+            StartPositionChess();
         }
 
         private void numericPosition_ValueChanged(object sender, EventArgs e)
@@ -75,6 +70,35 @@ namespace ChessGenerator
             
             LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
             pictureBoard.Image = alphaLayer.Image();
+        }
+
+        /// <summary>
+        /// Раставить начальную позизицю.
+        /// </summary>
+        private void StartPositionChess()
+        {
+            pieces = new PiecePosition();
+            pieces.Initialize();
+
+            pieces.Remove(11);
+            int pawn = 6;
+            int white = 8;
+            int whitePawn = white + pawn;
+            int vert = 3;
+            int horz = 3 << 3;
+            int e4 = vert + horz;
+            int figure = whitePawn + (e4 << 5);
+
+            pieces.Add(878);
+
+            piecesPicture = new PiecePaint(alphaStyle);
+            piecesPicture.DrawPosition(pieces.Items);
+
+            alphaFields = new AlphaField();
+            fields = new FieldPosition();
+            fieldsPicture = new FieldPaint(alphaFields);
+            var layer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
+            pictureBoard.Image = layer.Image();
         }
     }
 }

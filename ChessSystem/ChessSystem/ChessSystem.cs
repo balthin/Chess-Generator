@@ -4911,6 +4911,7 @@ namespace ChessSystem
                     }
                 }
             }
+
             public Bitmap DrawPosition(List<int> position)
             {
                 Bitmap b = new Bitmap(8 * this.style.SquareSize(), 8 * this.style.SquareSize());
