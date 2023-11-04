@@ -96,7 +96,7 @@ namespace ChessGenerator
             int color = 8;
             int white = 0;
             int black = 1;
-            int colorFigure = color << white;
+            int colorFigure = color << black;
             int pawn = 6;
             //int black = 14;
             int blackPawn = colorFigure + pawn;
