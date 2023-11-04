@@ -15,64 +15,40 @@ namespace ChessGenerator
 {
     public partial class Form1 : Form
     {
-        AlphaPieces alpha;
-        PiecePosition alphaPosition;
-        PiecePaint alphaPaint;
+        AlphaPieces alphaStyle;
+        PiecePosition pieces;
+        PiecePaint piecesPicture;
 
-        AlphaField alf;
-        FieldPosition alfPosition;
-        FieldPaint alfPaint;
+        AlphaField alphaFields;
+        FieldPosition fields;
+        FieldPaint fieldsPicture;
 
         BitPieces bPieces;
-        BitCalculation bCalc;
 
         public Form1()
         {
             InitializeComponent();
-            //int wp = 8 + 6;
-            //int wr = 8 + 3;
-
-            //int h1 = 0 + (0 << 3);
-            //int g1 = 1 + (0 << 3);
-            //int f1 = 2 + (0 << 3);
-            //int e1 = 3 + (0 << 3);
-            //int d1 = 4 + (0 << 3);
-            //int c1 = 5 + (0 << 3);
-            //int b1 = 6 + (0 << 3);
-            //int a1 = 7 + (0 << 3);
-
-            //int e2 = 3 + (1 << 3);
-            //int e4 = 3 + (3 << 3);
-            int d5 = 4 + (4 << 3);
-
-            int a8 = 7 + (7 << 3);
-
-
-            alpha = new AlphaPieces();
-            panelBoard.BackgroundImage = alpha.Board();
-            panelBoard.Size = new Size(alpha.BoardSize(), alpha.BoardSize());
-            pictureBoard.Size = new Size(alpha.BoardSize() - alpha.BordSize(), alpha.BoardSize() - alpha.BordSize());
-            pictureBoard.Location = new Point(alpha.BordSize() / 2, alpha.BordSize() / 2);
+           
+            alphaStyle = new AlphaPieces();
+            panelBoard.BackgroundImage = alphaStyle.Board();
+            panelBoard.Size = new Size(alphaStyle.BoardSize(), alphaStyle.BoardSize());
+            pictureBoard.Size = new Size(alphaStyle.BoardSize() - alphaStyle.BordSize(), alphaStyle.BoardSize() - alphaStyle.BordSize());
+            pictureBoard.Location = new Point(alphaStyle.BordSize() / 2, alphaStyle.BordSize() / 2);
             pictureBoard.BackColor = Color.Transparent;
             
-            alf = new AlphaField();
+            alphaFields = new AlphaField();
+            fields = new FieldPosition();
+            fieldsPicture = new FieldPaint(alphaFields);
 
-            alfPosition = new FieldPosition();
-            //alfPosition.Add((d5 << 2) + 3);
-            alfPaint = new FieldPaint(alf);
+            pieces = new PiecePosition();
+            pieces.Initialize();
+            piecesPicture = new PiecePaint(alphaStyle);
 
-            alphaPosition = new PiecePosition();
-            //alphaPosition.Add(wr + (d5 << 5));
-            alphaPosition.Initialize();
-            alphaPaint = new PiecePaint(alpha);
-
-            LayerPaint alphaLayer = new LayerPaint(alfPaint.DrawFields(alfPosition.Items), alphaPaint.DrawPosition(alphaPosition.Items));
+            LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
 
             pictureBoard.Image = alphaLayer.Image();
             
-            bPieces = new BitPieces(alphaPosition.Items);
-            Text = new BitCalculation(bPieces.BF).BitCount.ToString();
-            //Text = new BitPlace(bPieces.BR).Has(a8).ToString();
+            bPieces = new BitPieces(pieces.Items);
         }
     }
 }
