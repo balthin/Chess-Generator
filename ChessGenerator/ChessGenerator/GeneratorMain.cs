@@ -92,18 +92,30 @@ namespace ChessGenerator
             //pieces.Add(wpE4);
             //pieces.Add(878);
 
-            pieces.Remove(51);
+            //pieces.Remove(51);
+            //int color = 8;
+            //int white = 0;
+            //int black = 1;
+            //int colorFigure = color << black;
+            //int pawn = 6;
+            ////int black = 14;
+            //int blackPawn = colorFigure + pawn;
+            //int vert = 3;
+            //int horz = 4 << 3;
+            //int e5 = vert + horz;
+            //int wpE5 = blackPawn + (e5 << 5);
+            //pieces.Add(wpE5);
+
+            pieces.Remove(62);
             int color = 8;
-            int white = 0;
             int black = 1;
             int colorFigure = color << black;
-            int pawn = 6;
-            //int black = 14;
-            int blackPawn = colorFigure + pawn;
-            int vert = 3;
-            int horz = 4 << 3;
-            int e5 = vert + horz;
-            int wpE5 = blackPawn + (e5 << 5);
+            int knight = 5;
+            int blackFigure = colorFigure + knight;
+            int vert = 5;
+            int horz = 5 << 3;
+            int Kc6 = vert + horz;
+            int wpE5 = blackFigure + (Kc6 << 5);
             pieces.Add(wpE5);
 
             piecesPicture = new PiecePaint(alphaStyle);
