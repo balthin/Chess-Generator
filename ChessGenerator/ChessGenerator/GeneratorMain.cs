@@ -70,20 +70,16 @@ namespace ChessGenerator
                     pieces.Add((i << 5) + 21);
             }
             
-            
             ulong wrBit = 1ul << s;
             if ((blockers & wrBit) != 0)
                 pieces.Add((s << 5) + 11);
 
             bPieces = new BitPieces(pieces.Items);
             pseudo = new PseudoAttack(bPieces.TF, wrPos);
-            Text = pseudo.AttackHorz().ToString();
             fields = new FieldPosition();
 
             foreach (int sq in pseudo.AttackList())
                 fields.Add(0 + (sq << 2));
-
-            
             
             LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
             pictureBoard.Image = alphaLayer.Image();

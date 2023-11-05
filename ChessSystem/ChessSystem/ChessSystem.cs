@@ -161,6 +161,13 @@ namespace ChessSystem
                     g.DrawImage(pieceLayer, new Point());
                 }
             }
+            public LayerPaint(Bitmap pieceLayer)
+            {
+                this.b = new Bitmap(pieceLayer.Width, pieceLayer.Height);
+                b.MakeTransparent();
+                using (Graphics g = Graphics.FromImage(b)) 
+                    g.DrawImage(pieceLayer, new Point());
+            }
             public Bitmap Image()
             {
                 return b;
