@@ -36,6 +36,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.trackHorz = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.trackVert = new System.Windows.Forms.TrackBar();
+            this.laSquare = new System.Windows.Forms.Label();
             this.panelBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
             this.Setting.SuspendLayout();
@@ -43,6 +45,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBoard
@@ -65,20 +68,22 @@
             // 
             this.Setting.BackColor = System.Drawing.Color.SeaGreen;
             this.Setting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Setting.Controls.Add(this.laSquare);
+            this.Setting.Controls.Add(this.trackVert);
             this.Setting.Controls.Add(this.numericPosition);
             this.Setting.Controls.Add(this.pictureBox2);
             this.Setting.Controls.Add(this.trackHorz);
             this.Setting.Controls.Add(this.pictureBox1);
             this.Setting.Location = new System.Drawing.Point(492, 34);
             this.Setting.Name = "Setting";
-            this.Setting.Size = new System.Drawing.Size(153, 123);
+            this.Setting.Size = new System.Drawing.Size(153, 236);
             this.Setting.TabIndex = 1;
             // 
             // numericPosition
             // 
             this.numericPosition.BackColor = System.Drawing.Color.SeaGreen;
             this.numericPosition.Font = new System.Drawing.Font("Arial Black", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericPosition.Location = new System.Drawing.Point(54, 65);
+            this.numericPosition.Location = new System.Drawing.Point(54, 186);
             this.numericPosition.Maximum = new decimal(new int[] {
             255,
             0,
@@ -92,7 +97,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 65);
+            this.pictureBox2.Location = new System.Drawing.Point(3, 186);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(45, 45);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,14 +107,15 @@
             // trackHorz
             // 
             this.trackHorz.LargeChange = 1;
-            this.trackHorz.Location = new System.Drawing.Point(51, 3);
+            this.trackHorz.Location = new System.Drawing.Point(3, 108);
             this.trackHorz.Margin = new System.Windows.Forms.Padding(0);
             this.trackHorz.Maximum = 7;
             this.trackHorz.Name = "trackHorz";
             this.trackHorz.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.trackHorz.Size = new System.Drawing.Size(89, 45);
+            this.trackHorz.Size = new System.Drawing.Size(137, 45);
             this.trackHorz.TabIndex = 1;
             this.trackHorz.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackHorz.Scroll += new System.EventHandler(this.trackHorz_Scroll);
             // 
             // pictureBox1
             // 
@@ -120,6 +126,29 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // trackVert
+            // 
+            this.trackVert.LargeChange = 1;
+            this.trackVert.Location = new System.Drawing.Point(3, 60);
+            this.trackVert.Maximum = 7;
+            this.trackVert.Name = "trackVert";
+            this.trackVert.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trackVert.Size = new System.Drawing.Size(137, 45);
+            this.trackVert.TabIndex = 4;
+            this.trackVert.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackVert.Scroll += new System.EventHandler(this.trackVert_Scroll);
+            // 
+            // laSquare
+            // 
+            this.laSquare.AutoSize = true;
+            this.laSquare.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.laSquare.ForeColor = System.Drawing.Color.White;
+            this.laSquare.Location = new System.Drawing.Point(64, 11);
+            this.laSquare.Name = "laSquare";
+            this.laSquare.Size = new System.Drawing.Size(38, 37);
+            this.laSquare.TabIndex = 5;
+            this.laSquare.Text = "...";
             // 
             // foMain
             // 
@@ -141,6 +170,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,6 +184,8 @@
         private System.Windows.Forms.TrackBar trackHorz;
         private System.Windows.Forms.NumericUpDown numericPosition;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TrackBar trackVert;
+        private System.Windows.Forms.Label laSquare;
     }
 }
 
