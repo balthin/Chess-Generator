@@ -686,13 +686,5 @@ namespace Bitboard
         {
             return horzAttack;
         }
-        public List<int> AttackList()
-        {
-            List<int> result = new List<int>();
-            for (int i = 0; i < 64; i++)
-                if ((horzAttack & Bit[i]) != 0)
-                    result.Add(i);
-            return result;
-        }
     }
 }

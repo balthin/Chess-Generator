@@ -136,6 +136,7 @@ namespace BitCalculation
         public readonly List<int> Squares;
         public BitToList(ulong bitboard)
         {
+            Squares = new List<int>();
             BitPlace bitPlace = new BitPlace(bitboard);
             for (int i = 0; i < 64; i++)
             {

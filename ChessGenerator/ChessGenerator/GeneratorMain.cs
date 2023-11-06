@@ -25,6 +25,7 @@ namespace ChessGenerator
         FieldPaint fieldsPicture;
 
         BitPieces bPieces;
+        BitToList bList;
         PseudoAttack pseudo;
 
         String[] Vert = { "1", "2", "3", "4", "5", "6", "7", "8" };
@@ -76,9 +77,10 @@ namespace ChessGenerator
 
             bPieces = new BitPieces(pieces.Items);
             pseudo = new PseudoAttack(bPieces.TF, wrPos);
+            bList = new BitToList(pseudo.AttackHorz());
             fields = new FieldPosition();
 
-            foreach (int sq in pseudo.AttackList())
+            foreach (int sq in bList.Squares)
                 fields.Add(0 + (sq << 2));
             
             LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
