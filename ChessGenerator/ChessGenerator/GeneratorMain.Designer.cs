@@ -32,20 +32,21 @@
             this.panelBoard = new System.Windows.Forms.Panel();
             this.pictureBoard = new System.Windows.Forms.PictureBox();
             this.Setting = new System.Windows.Forms.Panel();
+            this.laSquare = new System.Windows.Forms.Label();
+            this.trackVert = new System.Windows.Forms.TrackBar();
             this.numericPosition = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.trackHorz = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.trackVert = new System.Windows.Forms.TrackBar();
-            this.laSquare = new System.Windows.Forms.Label();
+            this.checkVert = new System.Windows.Forms.CheckBox();
             this.panelBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
             this.Setting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPosition)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBoard
@@ -68,6 +69,7 @@
             // 
             this.Setting.BackColor = System.Drawing.Color.SeaGreen;
             this.Setting.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Setting.Controls.Add(this.checkVert);
             this.Setting.Controls.Add(this.laSquare);
             this.Setting.Controls.Add(this.trackVert);
             this.Setting.Controls.Add(this.numericPosition);
@@ -78,6 +80,29 @@
             this.Setting.Name = "Setting";
             this.Setting.Size = new System.Drawing.Size(153, 236);
             this.Setting.TabIndex = 1;
+            // 
+            // laSquare
+            // 
+            this.laSquare.AutoSize = true;
+            this.laSquare.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.laSquare.ForeColor = System.Drawing.Color.White;
+            this.laSquare.Location = new System.Drawing.Point(64, 11);
+            this.laSquare.Name = "laSquare";
+            this.laSquare.Size = new System.Drawing.Size(38, 37);
+            this.laSquare.TabIndex = 5;
+            this.laSquare.Text = "...";
+            // 
+            // trackVert
+            // 
+            this.trackVert.LargeChange = 1;
+            this.trackVert.Location = new System.Drawing.Point(3, 60);
+            this.trackVert.Maximum = 7;
+            this.trackVert.Name = "trackVert";
+            this.trackVert.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trackVert.Size = new System.Drawing.Size(137, 45);
+            this.trackVert.TabIndex = 4;
+            this.trackVert.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackVert.Scroll += new System.EventHandler(this.trackVert_Scroll);
             // 
             // numericPosition
             // 
@@ -127,28 +152,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // trackVert
+            // checkVert
             // 
-            this.trackVert.LargeChange = 1;
-            this.trackVert.Location = new System.Drawing.Point(3, 60);
-            this.trackVert.Maximum = 7;
-            this.trackVert.Name = "trackVert";
-            this.trackVert.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackVert.Size = new System.Drawing.Size(137, 45);
-            this.trackVert.TabIndex = 4;
-            this.trackVert.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackVert.Scroll += new System.EventHandler(this.trackVert_Scroll);
-            // 
-            // laSquare
-            // 
-            this.laSquare.AutoSize = true;
-            this.laSquare.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.laSquare.ForeColor = System.Drawing.Color.White;
-            this.laSquare.Location = new System.Drawing.Point(64, 11);
-            this.laSquare.Name = "laSquare";
-            this.laSquare.Size = new System.Drawing.Size(38, 37);
-            this.laSquare.TabIndex = 5;
-            this.laSquare.Text = "...";
+            this.checkVert.AutoSize = true;
+            this.checkVert.ForeColor = System.Drawing.Color.White;
+            this.checkVert.Location = new System.Drawing.Point(3, 156);
+            this.checkVert.Name = "checkVert";
+            this.checkVert.Size = new System.Drawing.Size(80, 17);
+            this.checkVert.TabIndex = 6;
+            this.checkVert.Text = "Вертикаль";
+            this.checkVert.UseVisualStyleBackColor = true;
             // 
             // foMain
             // 
@@ -166,11 +179,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).EndInit();
             this.Setting.ResumeLayout(false);
             this.Setting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericPosition)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackVert)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,6 +199,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TrackBar trackVert;
         private System.Windows.Forms.Label laSquare;
+        private System.Windows.Forms.CheckBox checkVert;
     }
 }
 

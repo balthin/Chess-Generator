@@ -25,11 +25,25 @@ namespace ChessGenerator
         FieldPaint fieldsPicture;
 
         BitPieces bPieces;
-        BitToList bList;
-        PseudoAttack pseudo;
+        BitToList hList;
+        BitToList vList;
+        PseudoHorzAttack horz;
+        PseudoVertAttack vert;
 
         String[] Vert = { "1", "2", "3", "4", "5", "6", "7", "8" };
         String[] Horz = { "H", "G", "F", "E", "D", "C", "B", "A" };
+
+        Int32[] Rotated90 = 
+        {
+            56, 48, 40, 32, 24, 16, 08, 00,
+            57, 49, 41, 33, 25, 17, 09, 01,
+            58, 50, 42, 34, 26, 18, 10, 02,
+            59, 51, 43, 35, 27, 19, 11, 03,
+            60, 52, 44, 36, 28, 20, 12, 04,
+            61, 53, 45, 37, 29, 21, 13, 05,
+            62, 54, 46, 38, 30, 22, 14, 06,
+            63, 55, 47, 39, 31, 23, 15, 07
+        };
 
         public foMain()
         {
@@ -59,7 +73,12 @@ namespace ChessGenerator
             int h = (int)trackHorz.Value;
             int v = (int)trackVert.Value;
             int s = h | (v << 3);
-            int wrPos = s;
+            
+            int wrPos = 0;
+            if (checkVert.Checked)
+                wrPos = Rotated90[s];
+            else
+                wrPos = s;
 
             ulong num = (ulong)numericPosition.Value;
             ulong blockers = num << (v * 8);
@@ -68,20 +87,32 @@ namespace ChessGenerator
             for (int i = 0; i < 64; i++, b = (1ul << i))
             {
                 if ((blockers & b) != 0)
-                    pieces.Add((i << 5) + 21);
+                {
+                    if (checkVert.Checked)
+                        pieces.Add((Rotated90[i] << 5) + 21);
+                    else
+                        pieces.Add((i << 5) + 21);
+                }
             }
             
             ulong wrBit = 1ul << s;
             if ((blockers & wrBit) != 0)
-                pieces.Add((s << 5) + 11);
+                pieces.Add((wrPos << 5) + 11);
 
             bPieces = new BitPieces(pieces.Items);
-            pseudo = new PseudoAttack(bPieces.TF, wrPos);
-            bList = new BitToList(pseudo.AttackHorz());
+            horz = new PseudoHorzAttack(bPieces.TF, wrPos);
+            vert = new PseudoVertAttack(bPieces.TFRotationRight90, wrPos);
+            hList = new BitToList(horz.AttackHorz());
+            vList = new BitToList(vert.AttackVert());
             fields = new FieldPosition();
+            Text = bPieces.TFRotationRight90.ToString();
 
-            foreach (int sq in bList.Squares)
-                fields.Add(0 + (sq << 2));
+            if (checkVert.Checked)
+                foreach (int sq in vList.Squares)
+                    fields.Add(0 + (sq << 2));
+            else
+                foreach (int sq in hList.Squares)
+                    fields.Add(0 + (sq << 2));
             
             LayerPaint alphaLayer = new LayerPaint(fieldsPicture.DrawFields(fields.Items), piecesPicture.DrawPosition(pieces.Items));
             pictureBoard.Image = alphaLayer.Image();
@@ -90,13 +121,19 @@ namespace ChessGenerator
         private void trackVert_Scroll(object sender, EventArgs e)
         {
             laSquare.Text = "";
-            laSquare.Text = laSquare.Text + Horz[trackHorz.Value] + Vert[trackVert.Value];
+            if (checkVert.Checked)
+                laSquare.Text = laSquare.Text + Horz[trackVert.Value] + Vert[7-trackHorz.Value];
+            else
+                laSquare.Text = laSquare.Text + Horz[trackHorz.Value] + Vert[trackVert.Value];
         }
 
         private void trackHorz_Scroll(object sender, EventArgs e)
         {
             laSquare.Text = "";
-            laSquare.Text = laSquare.Text + Horz[trackHorz.Value] + Vert[trackVert.Value];
+            if (checkVert.Checked)
+                laSquare.Text = laSquare.Text + Horz[trackVert.Value] + Vert[7-trackHorz.Value];
+            else
+                laSquare.Text = laSquare.Text + Horz[trackHorz.Value] + Vert[trackVert.Value];
         }
     }
 }
