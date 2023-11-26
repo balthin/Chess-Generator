@@ -7,7 +7,7 @@ namespace BitCalculation
 {
     public class BitPieces
     {
-        private int[] Rotation = 
+        private int[] Rotation90 = 
         {
             07, 15, 23, 31, 39, 47, 55, 63,
             06, 14, 22, 30, 38, 46, 54, 62, 
@@ -17,6 +17,17 @@ namespace BitCalculation
             02, 10, 18, 26, 34, 42, 50, 58,
             01, 09, 17, 25, 33, 41, 49, 57,
             00, 08, 16, 24, 32, 40, 48, 56
+        };
+        private int[] RotationRight45 = 
+        {
+            00, 02, 05, 09, 14, 20, 27, 35,
+            01, 04, 08, 13, 19, 26, 34, 42,
+            03, 07, 12, 18, 25, 33, 41, 48,
+            06, 11, 17, 24, 32, 40, 47, 53,
+            10, 16, 23, 31, 39, 46, 52, 57,
+            15, 22, 30, 38, 45, 51, 56, 60,
+            21, 29, 37, 44, 50, 55, 59, 62,
+            28, 36, 43, 49, 54, 58, 61, 63
         };
         public ulong WK { private set; get; }
         public ulong WQ { private set; get; }
@@ -50,85 +61,120 @@ namespace BitCalculation
         public ulong WFRotationRight90 { get; private set; }
         public ulong TFRotationRight90 { get; private set; }
 
+        public ulong WKRotationRight45 { get; private set; }
+        public ulong WQRotationRight45 { get; private set; }
+        public ulong WRRotationRight45 { get; private set; }
+        public ulong WBRotationRight45 { get; private set; }
+        public ulong WNRotationRight45 { get; private set; }
+        public ulong WPRotationRight45 { get; private set; }
+        public ulong BKRotationRight45 { get; private set; }
+        public ulong BQRotationRight45 { get; private set; }
+        public ulong BRRotationRight45 { get; private set; }
+        public ulong BBRotationRight45 { get; private set; }
+        public ulong BNRotationRight45 { get; private set; }
+        public ulong BPRotationRight45 { get; private set; }
+        public ulong BFRotationRight45 { get; private set; }
+        public ulong WFRotationRight45 { get; private set; }
+        public ulong TFRotationRight45 { get; private set; }
+
         public BitPieces(List<int> pieces)
         {
             foreach (int p in pieces)
             {
                 int square = (p >> 5) & 63;
-                int r90 = Rotation[square];
+                int r90 = Rotation90[square];
+                int r45 = RotationRight45[square];
                 ulong bit = 1;
-                ulong bs = bit << square;
-                ulong bitRotation = bit << r90;
+                ulong bitNormal = bit << square;
+                ulong bitRotationRight90 = bit << r90;
+                ulong bitRotationRight45 = bit << r45;
                 switch (p & 31)
                 {
                     case 09:
                         {
-                            WK |= bs;
-                            WKRotationRight90 |= bitRotation;
+                            WK |= bitNormal;
+                            WKRotationRight90 |= bitRotationRight90;
+                            WKRotationRight45 |= bitRotationRight45;
                         } break;
                     case 10:
                         {
-                            WQ |= bs;
-                            WQRotationRight90 |= bitRotation;
+                            WQ |= bitNormal;
+                            WQRotationRight90 |= bitRotationRight90;
+                            WQRotationRight45 |= bitRotationRight45;
                         } break;
                     case 11:
                         {
-                            WR |= bs;
-                            WRRotationRight90 |= bitRotation;
+                            WR |= bitNormal;
+                            WRRotationRight90 |= bitRotationRight90;
+                            WRRotationRight45 |= bitRotationRight45;
                         } break;
                     case 12:
                         {
-                            WB |= bs;
-                            WBRotationRight90 |= bitRotation;
+                            WB |= bitNormal;
+                            WBRotationRight90 |= bitRotationRight90;
+                            WBRotationRight45 |= bitRotationRight45;
                         } break;
                     case 13:
                         {
-                            WN |= bs;
-                            WNRotationRight90 |= bitRotation;
+                            WN |= bitNormal;
+                            WNRotationRight90 |= bitRotationRight90;
+                            WNRotationRight45 |= bitRotationRight45;
                         } break;
                     case 14:
                         {
-                            WP |= bs;
-                            WPRotationRight90 |= bitRotation;
+                            WP |= bitNormal;
+                            WPRotationRight90 |= bitRotationRight90;
+                            WPRotationRight45 |= bitRotationRight45;
                         } break;
                     case 17:
                         {
-                            BK |= bs;
-                            BKRotationRight90 |= bitRotation;
+                            BK |= bitNormal;
+                            BKRotationRight90 |= bitRotationRight90;
+                            BKRotationRight45 |= bitRotationRight45;
                         } break;
                     case 18:
                         {
-                            BQ |= bs;
-                            BQRotationRight90 |= bitRotation;
+                            BQ |= bitNormal;
+                            BQRotationRight90 |= bitRotationRight90;
+                            BQRotationRight45 |= bitRotationRight45;
                         } break;
                     case 19:
                         {
-                            BR |= bs;
-                            BRRotationRight90 |= bitRotation;
+                            BR |= bitNormal;
+                            BRRotationRight90 |= bitRotationRight90;
+                            BRRotationRight45 |= bitRotationRight45;
                         } break;
                     case 20:
                         {
-                            BB |= bs;
-                            BBRotationRight90 |= bitRotation;
+                            BB |= bitNormal;
+                            BBRotationRight90 |= bitRotationRight90;
+                            BBRotationRight45 |= bitRotationRight45;
                         } break;
                     case 21:
                         {
-                            BN |= bs;
-                            BNRotationRight90 |= bitRotation;
+                            BN |= bitNormal;
+                            BNRotationRight90 |= bitRotationRight90;
+                            BNRotationRight45 |= bitRotationRight45;
                         } break;
                     case 22:
                         {
-                            BP |= bs;
-                            BPRotationRight90 |= bitRotation;
+                            BP |= bitNormal;
+                            BPRotationRight90 |= bitRotationRight90;
+                            BPRotationRight45 |= bitRotationRight45;
                         } break;
                 }
             }
             WF = WK | WQ | WR | WB | WN | WP;
             BF = BK | BQ | BR | BB | BN | BP;
             TF = WF | BF;
+            
             WFRotationRight90 = WKRotationRight90 | WQRotationRight90 | WRRotationRight90 | WBRotationRight90 | WNRotationRight90 | WPRotationRight90;
             BFRotationRight90 = BKRotationRight90 | BQRotationRight90 | BRRotationRight90 | BBRotationRight90 | BNRotationRight90 | BPRotationRight90;
             TFRotationRight90 = WFRotationRight90 | BFRotationRight90;
+
+            WFRotationRight45 = WKRotationRight45 | WQRotationRight45 | WRRotationRight45 | WBRotationRight45 | WNRotationRight45 | WPRotationRight45;
+            BFRotationRight45 = BKRotationRight45 | BQRotationRight45 | BRRotationRight45 | BBRotationRight45 | BNRotationRight45 | BPRotationRight45;
+            TFRotationRight45 = WFRotationRight45 | BFRotationRight45;
         }
     }
     public class BitToList
