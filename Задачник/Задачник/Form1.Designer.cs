@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Пример 1");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("Пример 2");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Пример 3");
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Силовые ходы", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10,
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Пример 1");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Пример 2");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Пример 3");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Силовые ходы", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3});
             this.Board = new System.Windows.Forms.Panel();
             this.Area = new System.Windows.Forms.PictureBox();
             this.Comment = new System.Windows.Forms.TextBox();
@@ -78,16 +78,16 @@
             this.treeView.Font = new System.Drawing.Font("Book Antiqua", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView.Location = new System.Drawing.Point(567, 32);
             this.treeView.Name = "treeView";
-            treeNode9.Name = "Nd1";
-            treeNode9.Text = "Пример 1";
-            treeNode10.Name = "Nd2";
-            treeNode10.Text = "Пример 2";
-            treeNode11.Name = "Nd3";
-            treeNode11.Text = "Пример 3";
-            treeNode12.Name = "Node0";
-            treeNode12.Text = "Силовые ходы";
+            treeNode1.Name = "Nd1";
+            treeNode1.Text = "Пример 1";
+            treeNode2.Name = "Nd2";
+            treeNode2.Text = "Пример 2";
+            treeNode3.Name = "Nd3";
+            treeNode3.Text = "Пример 3";
+            treeNode4.Name = "Node0";
+            treeNode4.Text = "Силовые ходы";
             this.treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode4});
             this.treeView.Size = new System.Drawing.Size(453, 743);
             this.treeView.TabIndex = 2;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
@@ -101,10 +101,12 @@
             this.Controls.Add(this.treeView);
             this.Controls.Add(this.Comment);
             this.Controls.Add(this.Board);
+            this.KeyPreview = true;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Задачник";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.Board.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Area)).EndInit();
             this.ResumeLayout(false);

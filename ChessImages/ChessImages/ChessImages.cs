@@ -135,4 +135,19 @@ namespace ChessImages
             return 60;
         }
     }
+    public class ChessMenu
+    {
+        private Bitmap _image;
+        private Bitmap _selected;
+        private Bitmap _cell;
+        public ChessMenu()
+        {
+            _image = Properties.Resources.menuAlphaBackground;
+            _selected = Properties.Resources.pickAlpha;
+            _cell = Properties.Resources.menuAlpha;
+        }
+        public Bitmap Image { get { return _image; } }
+        public Bitmap Selected { get { return _selected; } }
+        public Bitmap Cell { get { return _cell; } }
+    }
 }

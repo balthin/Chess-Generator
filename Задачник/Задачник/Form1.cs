@@ -72,6 +72,23 @@ namespace Задачник
             "Силовые ходы: 1.Ф:d7 (жертва) 1...Л:d7 2.Лe8+ (шах) 2...Крh7 3.Ce4+ (шах) 3...g6 4.Л:d7 (нападение) 4...Са6 5.С:с6 (взятие) и нельзя 5...Ф:с6 из-за 6.Л:f7#.",
             "Силовые ходы: 1.С:f7+ (шах + жертва) 1...Л:f7 2.Kc4 (нападение)."
         };
+        int[] tactics1 = 
+        {
+            w.k + F._4, w.p + H._7, w.q + H._8, b.k + D._4, b.q + A._1
+        };
+        int[] tactics2 = 
+        {
+            w.k + C._2, w.p + A._7, w.r + A._8, b.k + F._7, b.r + A._1
+        };
+        int[] tactics3 = 
+        {
+            w.k + G._1, w.r + F._3, w.p + G._2, w.p + H._3, b.k + C._8, b.q + B._7
+        };
+        int[] tactics4 =
+        {
+            w.k + E._2, w.b + C._1, b.k + C._3, b.p + A._2, b.p + H._4
+        };
+
         AlphaPieces alpha;
         PiecePosition pieces;
         PiecePaint paint;
@@ -83,6 +100,9 @@ namespace Задачник
             Board.BackgroundImage = alpha.Board();
             pieces = new PiecePosition();
             paint = new PiecePaint(alpha);
+
+            layer = new LayerPaint(paint.DrawPosition(tactics4.ToList()));
+            Area.Image = layer.Image();
         }
 
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
@@ -99,6 +119,17 @@ namespace Задачник
                 } break;
             }
             Area.Image = layer.Image();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                Bitmap b = new Bitmap(Board.BackgroundImage);
+                Graphics g = Graphics.FromImage(b);
+                g.DrawImage(Area.Image, new Point(25,25));
+                Clipboard.SetImage(b);
+            }
         }
     }
 }

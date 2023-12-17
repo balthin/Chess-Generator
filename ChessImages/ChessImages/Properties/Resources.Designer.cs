@@ -333,6 +333,16 @@ namespace ChessImages.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap menuAlphaBackground {
+            get {
+                object obj = ResourceManager.GetObject("menuAlphaBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap menuOldStyle {
             get {
                 object obj = ResourceManager.GetObject("menuOldStyle", resourceCulture);

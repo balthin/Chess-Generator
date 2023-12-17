@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using ChessSystem;
 using ChessImages;
 using ChessSystem.Structure;
 using ChessSystem.Painting;
@@ -11,6 +12,7 @@ namespace ChessGenerator
 {
     public partial class foMain : Form
     {
+        AlphaBoardClick boardClick;
         AlphaPieces alphaStyle;
         PiecePosition pieces;
         PiecePaint piecesPicture;
@@ -18,6 +20,9 @@ namespace ChessGenerator
         AlphaField alphaFields;
         FieldPosition fields;
         FieldPaint fieldsPicture;
+        ArrowPosition arrows;
+        ArrowPaint arwPicture;
+        AlphaMenu menuPicture;
 
         BitPieces bPieces;
         BitToList hList;
@@ -43,7 +48,6 @@ namespace ChessGenerator
         public foMain()
         {
             InitializeComponent();
-           
             alphaStyle = new AlphaPieces();
             panelBoard.BackgroundImage = alphaStyle.Board();
             panelBoard.Size = new Size(alphaStyle.BoardSize(), alphaStyle.BoardSize());
@@ -59,6 +63,17 @@ namespace ChessGenerator
             alphaFields = new AlphaField();
             fields = new FieldPosition();
             fieldsPicture = new FieldPaint(alphaFields);
+
+            arrows = new ArrowPosition();
+            arwPicture = new ArrowPaint(alphaFields);
+
+            arrows.Add(6971);
+            LayerPaint alphaLayer = new LayerPaint(arwPicture.DrawArrows(arrows.Items));
+
+            pictureBoard.Image = alphaLayer.Image();
+
+            menuPicture = new AlphaMenu();
+            pictureMenu.Image = menuPicture.MenuImage;
         }
 
         private void numericPosition_ValueChanged(object sender, EventArgs e)
@@ -129,6 +144,19 @@ namespace ChessGenerator
                 laSquare.Text = laSquare.Text + Horz[trackVert.Value] + Vert[7-trackHorz.Value];
             else
                 laSquare.Text = laSquare.Text + Horz[trackHorz.Value] + Vert[trackVert.Value];
+        }
+
+        private void pictureMenu_MouseDown(object sender, MouseEventArgs e)
+        {
+            Text = (e.Y / 60 * 60).ToString(); 
+            menuPicture.Select(new Point(e.X, e.Y));
+            pictureMenu.Image = menuPicture.MenuImage;
+        }
+
+        private void pictureBoard_MouseDown(object sender, MouseEventArgs e)
+        {
+            boardClick = new AlphaBoardClick(new Point(e.X, e.Y));
+            Text = boardClick.X.ToString() + ":" + boardClick.Y.ToString();
         }
     }
 }

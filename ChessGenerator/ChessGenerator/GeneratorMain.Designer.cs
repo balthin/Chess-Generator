@@ -32,13 +32,14 @@
             this.panelBoard = new System.Windows.Forms.Panel();
             this.pictureBoard = new System.Windows.Forms.PictureBox();
             this.Setting = new System.Windows.Forms.Panel();
+            this.checkVert = new System.Windows.Forms.CheckBox();
             this.laSquare = new System.Windows.Forms.Label();
             this.trackVert = new System.Windows.Forms.TrackBar();
             this.numericPosition = new System.Windows.Forms.NumericUpDown();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.trackHorz = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.checkVert = new System.Windows.Forms.CheckBox();
+            this.pictureMenu = new System.Windows.Forms.PictureBox();
             this.panelBoard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoard)).BeginInit();
             this.Setting.SuspendLayout();
@@ -47,6 +48,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMenu)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBoard
@@ -64,6 +66,7 @@
             this.pictureBoard.Size = new System.Drawing.Size(331, 318);
             this.pictureBoard.TabIndex = 0;
             this.pictureBoard.TabStop = false;
+            this.pictureBoard.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoard_MouseDown);
             // 
             // Setting
             // 
@@ -80,6 +83,17 @@
             this.Setting.Name = "Setting";
             this.Setting.Size = new System.Drawing.Size(153, 236);
             this.Setting.TabIndex = 1;
+            // 
+            // checkVert
+            // 
+            this.checkVert.AutoSize = true;
+            this.checkVert.ForeColor = System.Drawing.Color.White;
+            this.checkVert.Location = new System.Drawing.Point(3, 156);
+            this.checkVert.Name = "checkVert";
+            this.checkVert.Size = new System.Drawing.Size(80, 17);
+            this.checkVert.TabIndex = 6;
+            this.checkVert.Text = "Вертикаль";
+            this.checkVert.UseVisualStyleBackColor = true;
             // 
             // laSquare
             // 
@@ -152,23 +166,22 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // checkVert
+            // pictureMenu
             // 
-            this.checkVert.AutoSize = true;
-            this.checkVert.ForeColor = System.Drawing.Color.White;
-            this.checkVert.Location = new System.Drawing.Point(3, 156);
-            this.checkVert.Name = "checkVert";
-            this.checkVert.Size = new System.Drawing.Size(80, 17);
-            this.checkVert.TabIndex = 6;
-            this.checkVert.Text = "Вертикаль";
-            this.checkVert.UseVisualStyleBackColor = true;
+            this.pictureMenu.Location = new System.Drawing.Point(761, 34);
+            this.pictureMenu.Name = "pictureMenu";
+            this.pictureMenu.Size = new System.Drawing.Size(120, 360);
+            this.pictureMenu.TabIndex = 2;
+            this.pictureMenu.TabStop = false;
+            this.pictureMenu.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureMenu_MouseDown);
             // 
             // foMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.ClientSize = new System.Drawing.Size(780, 630);
+            this.ClientSize = new System.Drawing.Size(950, 630);
+            this.Controls.Add(this.pictureMenu);
             this.Controls.Add(this.Setting);
             this.Controls.Add(this.panelBoard);
             this.Name = "foMain";
@@ -184,6 +197,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackHorz)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureMenu)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,6 +214,7 @@
         private System.Windows.Forms.TrackBar trackVert;
         private System.Windows.Forms.Label laSquare;
         private System.Windows.Forms.CheckBox checkVert;
+        private System.Windows.Forms.PictureBox pictureMenu;
     }
 }
 

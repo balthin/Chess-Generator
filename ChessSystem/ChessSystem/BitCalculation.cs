@@ -84,10 +84,9 @@ namespace BitCalculation
                 int square = (p >> 5) & 63;
                 int r90 = Rotation90[square];
                 int r45 = RotationRight45[square];
-                ulong bit = 1;
-                ulong bitNormal = bit << square;
-                ulong bitRotationRight90 = bit << r90;
-                ulong bitRotationRight45 = bit << r45;
+                ulong bitNormal = 1ul << square;
+                ulong bitRotationRight90 = 1ul << r90;
+                ulong bitRotationRight45 = 1ul << r45;
                 switch (p & 31)
                 {
                     case 09:
